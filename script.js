@@ -1,4 +1,4 @@
-// script.js
+// IMAGES
 
 const images = document.querySelectorAll('.gallery-image');
 
@@ -12,31 +12,31 @@ const prevBtn = document.querySelector('.prev');
 
 let currentIndex = 0;
 
-/* OPEN MODAL */
+// OPEN IMAGE MODAL
 
-images.forEach((img, index) => {
+function openModal(index) {
 
-  img.addEventListener('click', () => {
+  currentIndex = index;
 
-    modal.style.display = 'flex';
+  modal.classList.add('active');
 
-    modalImage.src = img.src;
+  modalImage.src = images[currentIndex].src;
 
-    currentIndex = index;
+  document.body.style.overflow = 'hidden';
+}
 
-  });
+// CLOSE MODAL
 
-});
+function closeModal() {
 
-/* CLOSE MODAL */
+  modal.classList.remove('active');
 
-closeBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
+  document.body.style.overflow = 'auto';
+}
 
-/* NEXT IMAGE */
+// NEXT IMAGE
 
-nextBtn.addEventListener('click', () => {
+function showNext() {
 
   currentIndex++;
 
@@ -45,12 +45,11 @@ nextBtn.addEventListener('click', () => {
   }
 
   modalImage.src = images[currentIndex].src;
+}
 
-});
+// PREVIOUS IMAGE
 
-/* PREVIOUS IMAGE */
-
-prevBtn.addEventListener('click', () => {
+function showPrev() {
 
   currentIndex--;
 
@@ -59,37 +58,105 @@ prevBtn.addEventListener('click', () => {
   }
 
   modalImage.src = images[currentIndex].src;
+}
+
+// CLICK IMAGES
+
+images.forEach((img, index) => {
+
+  img.addEventListener('click', () => {
+    openModal(index);
+  });
 
 });
 
-/* CLOSE WHEN CLICKING BACKGROUND */
+// BUTTONS
+
+closeBtn.addEventListener('click', closeModal);
+
+nextBtn.addEventListener('click', showNext);
+
+prevBtn.addEventListener('click', showPrev);
+
+// KEYBOARD
+
+window.addEventListener('keydown', (e) => {
+
+  if (e.key === 'ArrowRight') {
+    showNext();
+  }
+
+  if (e.key === 'ArrowLeft') {
+    showPrev();
+  }
+
+  if (e.key === 'Escape') {
+    closeModal();
+    closeProjectsOverlay();
+  }
+
+});
+
+// CLICK OUTSIDE
 
 modal.addEventListener('click', (e) => {
 
   if (e.target === modal) {
-    modal.style.display = 'none';
+    closeModal();
   }
 
 });
 
-/* KEYBOARD SUPPORT */
+// PROJECTS OVERLAY
 
-document.addEventListener('keydown', (e) => {
+const projectsLink = document.getElementById('projectsLink');
 
-  if (modal.style.display === 'flex') {
+const projectsOverlay = document.getElementById('projectsOverlay');
 
-    if (e.key === 'ArrowRight') {
-      nextBtn.click();
-    }
+const closeProjects = document.getElementById('closeProjects');
 
-    if (e.key === 'ArrowLeft') {
-      prevBtn.click();
-    }
+const projectItems = document.querySelectorAll('.project-item');
 
-    if (e.key === 'Escape') {
-      modal.style.display = 'none';
-    }
+// OPEN PROJECTS
 
+projectsLink.addEventListener('click', (e) => {
+
+  e.preventDefault();
+
+  projectsOverlay.classList.add('active');
+
+  document.body.style.overflow = 'hidden';
+});
+
+// CLOSE PROJECTS
+
+function closeProjectsOverlay() {
+
+  projectsOverlay.classList.remove('active');
+
+  document.body.style.overflow = 'auto';
+}
+
+closeProjects.addEventListener('click', closeProjectsOverlay);
+
+// CLOSE OUTSIDE
+
+projectsOverlay.addEventListener('click', (e) => {
+
+  if (e.target === projectsOverlay) {
+    closeProjectsOverlay();
   }
+
+});
+
+// CLICK PROJECT LINK
+
+projectItems.forEach(item => {
+
+  item.addEventListener('click', () => {
+
+    closeProjectsOverlay();
+
+  });
 
 });

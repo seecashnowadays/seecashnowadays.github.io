@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,21 +11,56 @@
 
   <!-- NAVBAR -->
   <nav class="navbar">
+
     <div class="logo">CASHNOWADAYS</div>
 
     <ul class="nav-links">
-      <li><a href="#">Projects</a></li>
+      <li><a href="#" id="projectsLink">Projects</a></li>
       <li><a href="#">Film</a></li>
       <li><a href="#">Digitals</a></li>
       <li><a href="#">About</a></li>
     </ul>
+
   </nav>
+
+  <!-- PROJECTS OVERLAY -->
+  <div class="projects-overlay" id="projectsOverlay">
+
+    <div class="projects-modal">
+
+      <span class="close-projects" id="closeProjects">&times;</span>
+
+      <h1>PROJECTS</h1>
+
+      <div class="project-list">
+
+        <a href="#project_01" class="project-item">
+          NIGHT EDITORIAL
+        </a>
+
+        <a href="#project_02" class="project-item">
+          TOKYO FILM SERIES
+        </a>
+
+        <a href="#project_03" class="project-item">
+          STREET PORTRAITS
+        </a>
+
+        <a href="#project_04" class="project-item">
+          ARCHIVE 2026
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
 
   <!-- GALLERY -->
   <main class="gallery">
 
     <!-- IMAGE 01 -->
-    <section class="photo-section">
+    <section class="photo-section" id="project_01">
       <img src="images/image_01.jpg" alt="Image 01" class="gallery-image">
     </section>
 
@@ -51,7 +85,7 @@
     </section>
 
     <!-- IMAGE 06 -->
-    <section class="photo-section">
+    <section class="photo-section" id="project_02">
       <img src="images/image_06.jpg" alt="Image 06" class="gallery-image">
     </section>
 
@@ -76,7 +110,7 @@
     </section>
 
     <!-- IMAGE 11 -->
-    <section class="photo-section">
+    <section class="photo-section" id="project_03">
       <img src="images/image_11.jpg" alt="Image 11" class="gallery-image">
     </section>
 
@@ -101,7 +135,7 @@
     </section>
 
     <!-- IMAGE 16 -->
-    <section class="photo-section">
+    <section class="photo-section" id="project_04">
       <img src="images/image_16.jpg" alt="Image 16" class="gallery-image">
     </section>
 
@@ -147,16 +181,19 @@
 
   </main>
 
-  <!-- MODAL -->
+  <!-- IMAGE MODAL -->
   <div class="modal" id="modal">
+
     <span class="close">&times;</span>
 
     <img class="modal-content" id="modalImage">
 
     <div class="nav prev">&#10094;</div>
     <div class="nav next">&#10095;</div>
+
   </div>
 
   <script src="script.js"></script>
+
 </body>
 </html>
