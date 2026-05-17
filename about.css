@@ -38,40 +38,39 @@ body {
 /* MAIN LAYOUT */
 
 .about-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center; /* centers both vertically */
-  justify-content: center; /* centers both horizontally */
   width: 100%;
-  min-height: 100vh;
-  padding: 70px 40px;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 70px 40px 40px;
   gap: 40px;
 }
 
-.image-side, .text-side {
-  flex: 1; /* both sides share equal space */
+/* LEFT IMAGE SIDE */
+
+.image-side {
+  width: 50%;
+  height: 100%;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .image-wrapper {
   width: 100%;
-  aspect-ratio: 9 / 16; /* adjust to fit your image aspect */
-}
+  height: 85vh;
 
-.image-wrapper img {
-  width: 100%;
-  height: auto;
-  object-fit: contain; /* or cover if you prefer cropping */
+  overflow: hidden;
 }
 
 .image-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* KEY CHANGE */
-  display: block;
+  object-fit: cover;
 }
 
 /* IMAGE CONTROLS */
