@@ -1,71 +1,95 @@
-// about.js
+// script.js
 
-const images = [
-  "images/about_01.jpg",
-  "images/about_02.jpg",
-  "images/about_03.jpg",
-  "images/about_04.jpg",
-  "images/about_05.jpg"
-];
+const images = document.querySelectorAll('.gallery-image');
 
-let current = 0;
+const modal = document.getElementById('modal');
+const modalImage = document.getElementById('modalImage');
 
-const image = document.getElementById("aboutImage");
+const closeBtn = document.querySelector('.close');
 
-const counter = document.getElementById("counter");
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
 
-const nextBtn = document.getElementById("nextBtn");
+let currentIndex = 0;
 
-const prevBtn = document.getElementById("prevBtn");
+/* OPEN MODAL */
 
-/* UPDATE IMAGE */
+images.forEach((img, index) => {
 
-function updateImage() {
+  img.addEventListener('click', () => {
 
-  image.src = images[current];
+    modal.style.display = 'flex';
 
-  counter.textContent = `${current + 1} of ${images.length}`;
+    modalImage.src = img.src;
 
-}
+    currentIndex = index;
 
-/* NEXT */
-
-nextBtn.addEventListener("click", () => {
-
-  current++;
-
-  if (current >= images.length) {
-    current = 0;
-  }
-
-  updateImage();
+  });
 
 });
 
-/* PREVIOUS */
+/* CLOSE MODAL */
 
-prevBtn.addEventListener("click", () => {
+closeBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
 
-  current--;
+/* NEXT IMAGE */
 
-  if (current < 0) {
-    current = images.length - 1;
+nextBtn.addEventListener('click', () => {
+
+  currentIndex++;
+
+  if (currentIndex >= images.length) {
+    currentIndex = 0;
   }
 
-  updateImage();
+  modalImage.src = images[currentIndex].src;
+
+});
+
+/* PREVIOUS IMAGE */
+
+prevBtn.addEventListener('click', () => {
+
+  currentIndex--;
+
+  if (currentIndex < 0) {
+    currentIndex = images.length - 1;
+  }
+
+  modalImage.src = images[currentIndex].src;
+
+});
+
+/* CLOSE WHEN CLICKING BACKGROUND */
+
+modal.addEventListener('click', (e) => {
+
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
 
 });
 
 /* KEYBOARD SUPPORT */
 
-document.addEventListener("keydown", (e) => {
+document.addEventListener('keydown', (e) => {
 
-  if (e.key === "ArrowRight") {
-    nextBtn.click();
-  }
+  if (modal.style.display === 'flex') {
 
-  if (e.key === "ArrowLeft") {
-    prevBtn.click();
+    if (e.key === 'ArrowRight') {
+      nextBtn.click();
+    }
+
+    if (e.key === 'ArrowLeft') {
+      prevBtn.click();
+    }
+
+    if (e.key === 'Escape') {
+      modal.style.display = 'none';
+    }
+
   }
 
 });
