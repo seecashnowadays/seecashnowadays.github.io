@@ -58,7 +58,7 @@ body {
 
 .image-wrapper {
   width: 100%;
-  aspect-ratio: 3 / 4; /* adjust to fit your image aspect */
+  aspect-ratio: 9 / 16; /* adjust to fit your image aspect */
 }
 
 .image-wrapper img {
