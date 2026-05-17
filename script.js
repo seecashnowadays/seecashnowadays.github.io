@@ -1,4 +1,4 @@
-// IMAGES
+// IMAGE MODAL
 
 const images = document.querySelectorAll('.gallery-image');
 
@@ -12,7 +12,7 @@ const prevBtn = document.querySelector('.prev');
 
 let currentIndex = 0;
 
-// OPEN IMAGE MODAL
+// OPEN MODAL
 
 function openModal(index) {
 
@@ -34,9 +34,11 @@ function closeModal() {
   document.body.style.overflow = 'auto';
 }
 
-// NEXT IMAGE
+// NEXT
 
-function showNext() {
+function showNext(e) {
+
+  if (e) e.stopPropagation();
 
   currentIndex++;
 
@@ -47,9 +49,11 @@ function showNext() {
   modalImage.src = images[currentIndex].src;
 }
 
-// PREVIOUS IMAGE
+// PREVIOUS
 
-function showPrev() {
+function showPrev(e) {
+
+  if (e) e.stopPropagation();
 
   currentIndex--;
 
@@ -60,27 +64,49 @@ function showPrev() {
   modalImage.src = images[currentIndex].src;
 }
 
-// CLICK IMAGES
+// OPEN IMAGE
 
 images.forEach((img, index) => {
 
   img.addEventListener('click', () => {
+
     openModal(index);
+
   });
 
 });
 
-// BUTTONS
+// CLOSE BUTTON
 
-closeBtn.addEventListener('click', closeModal);
+closeBtn.addEventListener('click', (e) => {
 
-nextBtn.addEventListener('click', showNext);
+  e.stopPropagation();
 
-prevBtn.addEventListener('click', showPrev);
+  closeModal();
+
+});
+
+// NEXT BUTTON
+
+nextBtn.addEventListener('click', (e) => {
+
+  showNext(e);
+
+});
+
+// PREVIOUS BUTTON
+
+prevBtn.addEventListener('click', (e) => {
+
+  showPrev(e);
+
+});
 
 // KEYBOARD
 
 window.addEventListener('keydown', (e) => {
+
+  if (!modal.classList.contains('active')) return;
 
   if (e.key === 'ArrowRight') {
     showNext();
@@ -92,71 +118,26 @@ window.addEventListener('keydown', (e) => {
 
   if (e.key === 'Escape') {
     closeModal();
-    closeProjectsOverlay();
   }
 
 });
 
-// CLICK OUTSIDE
+// CLICK OUTSIDE IMAGE
 
 modal.addEventListener('click', (e) => {
 
   if (e.target === modal) {
+
     closeModal();
+
   }
 
 });
 
-// PROJECTS OVERLAY
+// PREVENT IMAGE CLICK FROM CLOSING
 
-const projectsLink = document.getElementById('projectsLink');
+modalImage.addEventListener('click', (e) => {
 
-const projectsOverlay = document.getElementById('projectsOverlay');
-
-const closeProjects = document.getElementById('closeProjects');
-
-const projectItems = document.querySelectorAll('.project-item');
-
-// OPEN PROJECTS
-
-projectsLink.addEventListener('click', (e) => {
-
-  e.preventDefault();
-
-  projectsOverlay.classList.add('active');
-
-  document.body.style.overflow = 'hidden';
-});
-
-// CLOSE PROJECTS
-
-function closeProjectsOverlay() {
-
-  projectsOverlay.classList.remove('active');
-
-  document.body.style.overflow = 'auto';
-}
-
-closeProjects.addEventListener('click', closeProjectsOverlay);
-
-// CLOSE OUTSIDE
-
-projectsOverlay.addEventListener('click', (e) => {
-
-  if (e.target === projectsOverlay) {
-    closeProjectsOverlay();
-  }
-
-});
-
-// CLICK PROJECT LINK
-
-projectItems.forEach(item => {
-
-  item.addEventListener('click', () => {
-
-    closeProjectsOverlay();
-
-  });
+  e.stopPropagation();
 
 });
