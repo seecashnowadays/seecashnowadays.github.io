@@ -1,95 +1,71 @@
-// script.js
+// about.js
 
-const images = document.querySelectorAll('.gallery-image');
+const images = [
+  "images/about_01.jpg",
+  "images/about_02.jpg",
+  "images/about_03.jpg",
+  "images/about_04.jpg",
+  "images/about_05.jpg"
+];
 
-const modal = document.getElementById('modal');
-const modalImage = document.getElementById('modalImage');
+let current = 0;
 
-const closeBtn = document.querySelector('.close');
+const image = document.getElementById("aboutImage");
 
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
+const counter = document.getElementById("counter");
 
-let currentIndex = 0;
+const nextBtn = document.getElementById("nextBtn");
 
-/* OPEN MODAL */
+const prevBtn = document.getElementById("prevBtn");
 
-images.forEach((img, index) => {
+/* UPDATE IMAGE */
 
-  img.addEventListener('click', () => {
+function updateImage() {
 
-    modal.style.display = 'flex';
+  image.src = images[current];
 
-    modalImage.src = img.src;
+  counter.textContent = `${current + 1} of ${images.length}`;
 
-    currentIndex = index;
+}
 
-  });
+/* NEXT */
 
-});
+nextBtn.addEventListener("click", () => {
 
-/* CLOSE MODAL */
+  current++;
 
-closeBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
-
-/* NEXT IMAGE */
-
-nextBtn.addEventListener('click', () => {
-
-  currentIndex++;
-
-  if (currentIndex >= images.length) {
-    currentIndex = 0;
+  if (current >= images.length) {
+    current = 0;
   }
 
-  modalImage.src = images[currentIndex].src;
+  updateImage();
 
 });
 
-/* PREVIOUS IMAGE */
+/* PREVIOUS */
 
-prevBtn.addEventListener('click', () => {
+prevBtn.addEventListener("click", () => {
 
-  currentIndex--;
+  current--;
 
-  if (currentIndex < 0) {
-    currentIndex = images.length - 1;
+  if (current < 0) {
+    current = images.length - 1;
   }
 
-  modalImage.src = images[currentIndex].src;
-
-});
-
-/* CLOSE WHEN CLICKING BACKGROUND */
-
-modal.addEventListener('click', (e) => {
-
-  if (e.target === modal) {
-    modal.style.display = 'none';
-  }
+  updateImage();
 
 });
 
 /* KEYBOARD SUPPORT */
 
-document.addEventListener('keydown', (e) => {
+document.addEventListener("keydown", (e) => {
 
-  if (modal.style.display === 'flex') {
+  if (e.key === "ArrowRight") {
+    nextBtn.click();
+  }
 
-    if (e.key === 'ArrowRight') {
-      nextBtn.click();
-    }
-
-    if (e.key === 'ArrowLeft') {
-      prevBtn.click();
-    }
-
-    if (e.key === 'Escape') {
-      modal.style.display = 'none';
-    }
-
+  if (e.key === "ArrowLeft") {
+    prevBtn.click();
   }
 
 });
