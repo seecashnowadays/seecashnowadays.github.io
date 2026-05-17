@@ -1,4 +1,4 @@
-// IMAGE MODAL
+// script.js
 
 const images = document.querySelectorAll('.gallery-image');
 
@@ -12,33 +12,31 @@ const prevBtn = document.querySelector('.prev');
 
 let currentIndex = 0;
 
-// OPEN MODAL
+/* OPEN MODAL */
 
-function openModal(index) {
+images.forEach((img, index) => {
 
-  currentIndex = index;
+  img.addEventListener('click', () => {
 
-  modal.classList.add('active');
+    modal.style.display = 'flex';
 
-  modalImage.src = images[currentIndex].src;
+    modalImage.src = img.src;
 
-  document.body.style.overflow = 'hidden';
-}
+    currentIndex = index;
 
-// CLOSE MODAL
+  });
 
-function closeModal() {
+});
 
-  modal.classList.remove('active');
+/* CLOSE MODAL */
 
-  document.body.style.overflow = 'auto';
-}
+closeBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
 
-// NEXT
+/* NEXT IMAGE */
 
-function showNext(e) {
-
-  if (e) e.stopPropagation();
+nextBtn.addEventListener('click', () => {
 
   currentIndex++;
 
@@ -47,13 +45,12 @@ function showNext(e) {
   }
 
   modalImage.src = images[currentIndex].src;
-}
 
-// PREVIOUS
+});
 
-function showPrev(e) {
+/* PREVIOUS IMAGE */
 
-  if (e) e.stopPropagation();
+prevBtn.addEventListener('click', () => {
 
   currentIndex--;
 
@@ -62,82 +59,37 @@ function showPrev(e) {
   }
 
   modalImage.src = images[currentIndex].src;
-}
-
-// OPEN IMAGE
-
-images.forEach((img, index) => {
-
-  img.addEventListener('click', () => {
-
-    openModal(index);
-
-  });
 
 });
 
-// CLOSE BUTTON
-
-closeBtn.addEventListener('click', (e) => {
-
-  e.stopPropagation();
-
-  closeModal();
-
-});
-
-// NEXT BUTTON
-
-nextBtn.addEventListener('click', (e) => {
-
-  showNext(e);
-
-});
-
-// PREVIOUS BUTTON
-
-prevBtn.addEventListener('click', (e) => {
-
-  showPrev(e);
-
-});
-
-// KEYBOARD
-
-window.addEventListener('keydown', (e) => {
-
-  if (!modal.classList.contains('active')) return;
-
-  if (e.key === 'ArrowRight') {
-    showNext();
-  }
-
-  if (e.key === 'ArrowLeft') {
-    showPrev();
-  }
-
-  if (e.key === 'Escape') {
-    closeModal();
-  }
-
-});
-
-// CLICK OUTSIDE IMAGE
+/* CLOSE WHEN CLICKING BACKGROUND */
 
 modal.addEventListener('click', (e) => {
 
   if (e.target === modal) {
-
-    closeModal();
-
+    modal.style.display = 'none';
   }
 
 });
 
-// PREVENT IMAGE CLICK FROM CLOSING
+/* KEYBOARD SUPPORT */
 
-modalImage.addEventListener('click', (e) => {
+document.addEventListener('keydown', (e) => {
 
-  e.stopPropagation();
+  if (modal.style.display === 'flex') {
+
+    if (e.key === 'ArrowRight') {
+      nextBtn.click();
+    }
+
+    if (e.key === 'ArrowLeft') {
+      prevBtn.click();
+    }
+
+    if (e.key === 'Escape') {
+      modal.style.display = 'none';
+    }
+
+  }
 
 });
