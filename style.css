@@ -82,6 +82,21 @@ body {
   transform: scale(1.01);
 }
 
+.photo-section {
+  width: 100%;
+  height: 100vh;
+
+  scroll-snap-align: start;
+  overflow: hidden;
+
+  border-top: 2px solid white;  /* top white line */
+  border-bottom: 2px solid white; /* bottom white line */
+}
+
+.photo-section:not(:last-child) {
+  margin-bottom: 20px; /* space between sections */
+}
+
 /* MODAL */
 
 .modal {
