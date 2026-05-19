@@ -109,3 +109,10 @@ window.addEventListener('scroll', () => {
   
   lastScroll = currentScroll;
 });
+
+const logo = document.querySelector('.logo');
+const dropdown = document.querySelector('.dropdown');
+
+logo.addEventListener('click', () => {
+  dropdown.classList.toggle('show');
+});
