@@ -95,7 +95,7 @@ body {
 }
 
 .photo-section:not(:last-child) {
-  margin-bottom: 20px; /* space between sections */
+  margin-bottom: 1px; /* space between sections */
 }
 
 /* MODAL */
