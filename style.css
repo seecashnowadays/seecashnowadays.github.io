@@ -33,7 +33,7 @@ body {
 }
 
 .logo {
-  color: white;
+  color: red;
   font-size: 18px;
   letter-spacing: 2px;
 }
@@ -45,7 +45,7 @@ body {
 }
 
 .nav-links a {
-  color: white;
+  color: red;
   text-decoration: none;
   font-size: 14px;
   transition: opacity 0.3s ease;
