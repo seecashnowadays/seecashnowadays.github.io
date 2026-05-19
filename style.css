@@ -185,3 +185,14 @@ body {
   }
 
 }
+
+@media (min-width: 769px) {
+  body {
+    background: white; /* Ensure the desktop background is white */
+  }
+
+  .navbar {
+    background: white; /* Make sure the navbar is also white on desktop */
+    backdrop-filter: none; /* Remove blur or any transparency on desktop */
+  }
+}
