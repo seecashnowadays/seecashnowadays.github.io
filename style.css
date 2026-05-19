@@ -33,7 +33,7 @@ body {
 }
 
 .logo {
-  color: black;
+  color: white;
   font-size: 18px;
   letter-spacing: 2px;
 }
@@ -193,6 +193,6 @@ body {
 
   .navbar {
     background: white; /* Make sure the navbar is also white on desktop */
-    backdrop-filter: none; /* Remove blur or any transparency on desktop */
+    backdrop-filter: blur(10px); /* Remove blur or any transparency on desktop */
   }
 }
