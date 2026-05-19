@@ -128,7 +128,7 @@ body {
   top: 25px;
   right: 35px;
 
-  color: black;
+  color: white;
   font-size: 40px;
   cursor: pointer;
 }
@@ -140,7 +140,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
 
-  color: black;
+  color: white;
   font-size: 50px;
 
   cursor: pointer;
@@ -193,6 +193,6 @@ body {
 
   .navbar {
     background: white; /* Make sure the navbar is also white on desktop */
-    backdrop-filter: blur(10px); /* Remove blur or any transparency on desktop */
+    backdrop-filter: none; /* Remove blur or any transparency on desktop */
   }
 }
