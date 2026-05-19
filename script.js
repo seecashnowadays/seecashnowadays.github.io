@@ -99,11 +99,11 @@ let lastScroll = 0;
 window.addEventListener('scroll', () => {
   const currentScroll = window.scrollY;
   
-  if (currentScroll > lastScroll) {
-    // Scrolling down - hide navbar
+  if (currentScroll > lastScroll && currentScroll > 50) {
+    // Scrolling down and past a certain point - hide navbar
     navbar.style.transform = 'translateY(-100%)';
-  } else {
-    // Scrolling up - show navbar
+  } else if (currentScroll < lastScroll || currentScroll === 0) {
+    // Scrolling up or back to top - show navbar
     navbar.style.transform = 'translateY(0)';
   }
   
