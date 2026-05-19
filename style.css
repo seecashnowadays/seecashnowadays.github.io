@@ -56,29 +56,6 @@ body {
   opacity: 0.6;
 }
 
-.logo-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative; /* so the dropdown can be positioned */
-}
-
-.dropdown {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-}
-
-.dropdown.show {
-  display: flex; /* When toggled, it appears */
-}
-
 /* GALLERY */
 
 .gallery {
