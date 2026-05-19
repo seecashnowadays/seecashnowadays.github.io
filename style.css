@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  background: white;
+  background: black;
   overflow-x: hidden;
 }
 
@@ -95,7 +95,7 @@ body {
 }
 
 .photo-section:not(:last-child) {
-  margin-bottom: 4px; /* space between sections */
+  margin-bottom: 6px; /* space between sections */
 }
 
 /* MODAL */
