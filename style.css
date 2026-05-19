@@ -33,7 +33,7 @@ body {
 }
 
 .logo {
-  color: white;
+  color: black;
   font-size: 18px;
   letter-spacing: 2px;
 }
@@ -45,7 +45,7 @@ body {
 }
 
 .nav-links a {
-  color: white;
+  color: black;
   text-decoration: none;
   font-size: 14px;
   transition: opacity 0.3s ease;
@@ -128,7 +128,7 @@ body {
   top: 25px;
   right: 35px;
 
-  color: white;
+  color: black;
   font-size: 40px;
   cursor: pointer;
 }
@@ -140,7 +140,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
 
-  color: white;
+  color: black;
   font-size: 50px;
 
   cursor: pointer;
