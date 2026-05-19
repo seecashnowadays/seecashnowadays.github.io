@@ -89,8 +89,8 @@ body {
   scroll-snap-align: start;
   overflow: hidden;
 
-  border-top: 2px solid white;  /* top white line */
-  border-bottom: 2px solid white; /* bottom white line */
+  border-top: 1px solid white;  /* top white line */
+  border-bottom: 1px solid white; /* bottom white line */
 }
 
 .photo-section:not(:last-child) {
