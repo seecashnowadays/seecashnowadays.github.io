@@ -93,3 +93,19 @@ document.addEventListener('keydown', (e) => {
   }
 
 });
+
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.scrollY;
+  
+  if (currentScroll > lastScroll) {
+    // Scrolling down - hide navbar
+    navbar.style.transform = 'translateY(-100%)';
+  } else {
+    // Scrolling up - show navbar
+    navbar.style.transform = 'translateY(0)';
+  }
+  
+  lastScroll = currentScroll;
+});
