@@ -1,4 +1,4 @@
-// script.js
+const navbar = document.querySelector('.navbar');
 
 const images = document.querySelectorAll('.gallery-image');
 
