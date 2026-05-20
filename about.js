@@ -21,51 +21,36 @@ const prevBtn = document.getElementById("prevBtn");
 /* UPDATE IMAGE */
 
 function updateImage() {
-
   image.src = images[current];
-
   counter.textContent = `${current + 1} of ${images.length}`;
-
 }
 
 /* NEXT */
 
 nextBtn.addEventListener("click", () => {
-
   current++;
-
   if (current >= images.length) {
     current = 0;
   }
-
   updateImage();
-
 });
 
 /* PREVIOUS */
 
 prevBtn.addEventListener("click", () => {
-
   current--;
-
   if (current < 0) {
     current = images.length - 1;
   }
-
   updateImage();
-
 });
 
 /* KEYBOARD SUPPORT */
 
 document.addEventListener("keydown", (e) => {
-
   if (e.key === "ArrowRight") {
     nextBtn.click();
   }
-
   if (e.key === "ArrowLeft") {
     prevBtn.click();
   }
-
-});
