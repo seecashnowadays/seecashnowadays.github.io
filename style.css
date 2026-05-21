@@ -28,7 +28,7 @@ body {
   align-items: center;
   z-index: 1000;
   background: rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(10px);
+  backdrop-filter: none(10px);
   transition: transform 0.3s ease; /* Smooth hide effect */
 }
 
