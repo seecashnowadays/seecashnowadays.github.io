@@ -190,7 +190,7 @@ body {
   }
 
   .navbar {
-    background: transparent;
+    background: white;
     backdrop-filter: none;
     padding: 20px 30px;
   }
