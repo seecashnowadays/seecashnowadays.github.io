@@ -26,10 +26,8 @@ body {
   align-items: center;
   z-index: 1000;
 
-  opacity: 0;
-  pointer-events: none;
-
-  transition: transform 0.3s ease;
+  background: transparent;
+  backdrop-filter: none;
 }
 
 .logo {
@@ -155,8 +153,8 @@ body {
   .navbar {
     padding: 20px;
 
-    opacity: 0;
-    pointer-events: none;
+    background: transparent;
+    backdrop-filter: none;
   }
 
   .nav-links {
