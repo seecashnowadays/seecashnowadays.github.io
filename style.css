@@ -16,9 +16,7 @@ body {
   overflow-x: hidden;
 }
 
-/* NAVBAR */
-
- {
+.navbar {
   position: fixed;
   top: 0;
   width: 100%;
@@ -27,9 +25,11 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.25);
-  backdrop-filter: none(10px);
-  transition: transform 0.3s ease; /* Smooth hide effect */
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: transform 0.3s ease;
 }
 
 .logo {
@@ -154,6 +154,9 @@ body {
 
   .navbar {
     padding: 20px;
+
+    opacity: 0;
+    pointer-events: none;
   }
 
   .nav-links {
