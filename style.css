@@ -27,7 +27,6 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-
   background: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(10px);
   transition: transform 0.3s ease; /* Smooth hide effect */
@@ -38,6 +37,8 @@ body {
   font-size: 16px;
   letter-spacing: 1px;
 }
+
+/* NAVIGATION LINKS */
 
 .nav-links {
   display: flex;
@@ -65,37 +66,26 @@ body {
 .photo-section {
   width: 100%;
   height: 100vh;
-
   scroll-snap-align: start;
   overflow: hidden;
-}
-
-.gallery-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-
-  cursor: pointer;
-  transition: transform 0.4s ease;
-}
-
-.gallery-image:hover {
-  transform: scale(1.01);
-}
-
-.photo-section {
-  width: 100%;
-  height: 100vh;
-
-  scroll-snap-align: start;
-  overflow: hidden;
-
   border-top: 4px solid white;  /* top white line */
   border-bottom: 4px solid white; /* bottom white line */
 }
 
 .photo-section:not(:last-child) {
   margin-bottom: 6px; /* space between sections */
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.01);
 }
 
 /* MODAL */
@@ -106,12 +96,9 @@ body {
   z-index: 5000;
   left: 0;
   top: 0;
-
   width: 100%;
   height: 100%;
-
   background: rgba(0, 0, 0, 0.95);
-
   justify-content: center;
   align-items: center;
 }
@@ -128,7 +115,6 @@ body {
   position: absolute;
   top: 25px;
   right: 35px;
-
   color: white;
   font-size: 40px;
   cursor: pointer;
@@ -143,12 +129,9 @@ body {
 
   color: white;
   font-size: 50px;
-
   cursor: pointer;
-
   padding: 20px;
   user-select: none;
-
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -187,13 +170,52 @@ body {
 
 }
 
+/* DESKTOP SPECIFIC LAYOUT */
+
 @media (min-width: 769px) {
   body {
-    background: white; /* Ensure the desktop background is white */
+    background: white; /* Ensure desktop background is white */
   }
 
   .navbar {
-    background: white; /* Make sure the navbar is also white on desktop */
-    backdrop-filter: none; /* Remove blur or any transparency on desktop */
+    background: white; /* Navbar white on desktop */
+    backdrop-filter: blur; /* Remove blur on desktop */
   }
+
+  /* Add your desktop-specific styles here */
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px;
+  }
+
+  .photo-section {
+    width: 48%; /* Two images per row */
+    height: auto;
+    margin-bottom: 40px;
+    border-top: none;
+    border-bottom: none;
+  }
+
+  .gallery-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .text-side {
+    width: 45%; /* Text side narrower on desktop */
+    padding: 20px;
+    margin-left: 5%;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .paragraph {
+    font-size: 16px;
+  }
+
 }
