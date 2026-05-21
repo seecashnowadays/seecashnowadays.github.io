@@ -150,12 +150,19 @@ body {
 
 @media (max-width: 768px) {
 
-  .navbar {
-    padding: 20px;
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
 
-    background: transparent;
-    backdrop-filter: none;
-  }
+  background: transparent;
+  backdrop-filter: none;
+}
 
   .nav-links {
     gap: 15px;
@@ -177,11 +184,20 @@ body {
   body {
     background: white; /* Ensure desktop background is white */
   }
+  
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
 
-  .navbar {
-    background: white; /* Navbar white on desktop */
-    backdrop-filter: blur; /* Remove blur on desktop */
-  }
+  background: transparent;
+  backdrop-filter: none;
+}
 
   /* Add your desktop-specific styles here */
   .gallery {
