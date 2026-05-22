@@ -69,6 +69,7 @@ body {
 .photo-section {
   width: 100%;
   overflow: hidden;
+  border-top: 4px solid white;
 }
 
 .photo-section:not(:last-child) {
@@ -157,19 +158,12 @@ body {
 
 @media (max-width: 768px) {
 
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
+  .navbar {
+    padding: 20px;
 
-  background: transparent;
-  backdrop-filter: none;
-}
+    background: transparent;
+    backdrop-filter: none;
+  }
 
   .nav-links {
     gap: 15px;
