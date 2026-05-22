@@ -16,27 +16,23 @@ body {
   overflow-x: hidden;
 }
 
+/* NAVBAR */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 20px 40px;
+  padding: 20px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-
   background: transparent;
-  backdrop-filter: none;
 }
 
 .logo {
-  color: black;
   font-size: 16px;
-  letter-spacing: 1px;
+  font-weight: 700;
 }
-
-/* NAVIGATION LINKS */
 
 .nav-links {
   display: flex;
@@ -59,33 +55,26 @@ body {
 
 .gallery {
   width: 100%;
+  padding-top: 80px; /* prevents navbar overlap */
 }
 
 .photo-section {
   width: 100%;
+  margin-bottom: 20px;
   overflow: hidden;
 }
 
-.photo-section:not(:last-child) {
-  margin-bottom: 20px; /* space between sections */
-}
-
 .gallery-image {
-  width: 85%;
+  width: 100%;
   height: auto;
-
   display: block;
-
-  object-fit: contain;
-  object-position: center center;
-
-  cursor: pointer;
-
-  transition: transform 0.4s ease;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
+/* optional: reduce harsh zoom on mobile */
 .gallery-image:hover {
-  transform: scale(1.20);
+  transform: scale(1.03);
 }
 
 /* MODAL */
@@ -185,50 +174,33 @@ body {
 @media (min-width: 769px) {
 
   body {
-    background: white;
     padding: 20px;
-  }
-
-  .navbar {
-    background: transparent;
-    backdrop-filter: none;
-    padding: 20px 30px;
   }
 
   .gallery {
     column-count: 2;
     column-gap: 20px;
+    padding-top: 80px;
   }
 
   .photo-section {
-    width: 100%;
-    height: auto;
-
-    display: inline-block;
-
-    margin-bottom: 20px;
-
-    border: none;
-
-    overflow: hidden;
-
     break-inside: avoid;
+    margin-bottom: 20px;
   }
 
   .gallery-image {
     width: 100%;
     height: auto;
-
     display: block;
-
-    object-fit: contain;
-    object-position: center center;
-
+    object-fit: cover;
     transition: transform 0.4s ease;
   }
 
   .gallery-image:hover {
-    transform: scale(1.01);
+    transform: scale(1.02);
   }
 
+  .navbar {
+    padding: 20px 30px;
+  }
 }
