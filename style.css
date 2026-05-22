@@ -203,5 +203,5 @@ body {
   .navbar {
   display: flex;
   justify-content: flex-start;
-  padding-left: 40px;
+  padding-right: 40px;
 }
