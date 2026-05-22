@@ -201,6 +201,7 @@ body {
   }
 
   .navbar {
-    padding: 20px 30px;
-  }
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 40px;
 }
