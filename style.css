@@ -232,4 +232,17 @@ body {
     transform: scale(1.01);
   }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+@media (min-width: 769px) {
+  body {
+    padding: 20px 0;
+  }
+}
+
+.nav-links {
+  margin-right: 0;
 }
