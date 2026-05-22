@@ -16,14 +16,13 @@ body {
   overflow-x: hidden;
 }
 
-8navbar {
+.navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 40px 40px;
+  padding: 20px 40px;
   display: flex;
-  justify-content: flex-start;
-  gap: 60px;
+  justify-content: space-between;
   align-items: center;
   z-index: 1000;
 
@@ -35,8 +34,6 @@ body {
   color: black;
   font-size: 16px;
   letter-spacing: 1px;
-
-  font-weight: 700;
 }
 
 /* NAVIGATION LINKS */
@@ -45,8 +42,6 @@ body {
   display: flex;
   gap: 25px;
   list-style: none;
-  margin-left: auto;
-  margin-right: 40px;
 }
 
 .nav-links a {
@@ -69,11 +64,10 @@ body {
 .photo-section {
   width: 100%;
   overflow: hidden;
-  border-top: 4px solid white;
 }
 
 .photo-section:not(:last-child) {
-  margin-bottom: 20; /* space between sections */
+  margin-bottom: 20px; /* space between sections */
 }
 
 .gallery-image {
@@ -158,12 +152,19 @@ body {
 
 @media (max-width: 768px) {
 
-  .navbar {
-    padding: 20px;
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
 
-    background: transparent;
-    backdrop-filter: none;
-  }
+  background: transparent;
+  backdrop-filter: none;
+}
 
   .nav-links {
     gap: 15px;
@@ -189,11 +190,9 @@ body {
   }
 
   .navbar {
-    background: white;
+    background: transparent;
     backdrop-filter: none;
-    padding: 40px 30px;
-    justify-content: flex-start;
-    gap: 60px;
+    padding: 20px 30px;
   }
 
   .gallery {
@@ -232,17 +231,4 @@ body {
     transform: scale(1.01);
   }
 
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
-}
-
-@media (min-width: 769px) {
-  body {
-    padding: 20px 0;
-  }
-}
-
-.nav-links {
-  margin-right: 0;
 }
