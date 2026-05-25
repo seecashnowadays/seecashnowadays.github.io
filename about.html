@@ -4,63 +4,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About</title>
+
+  <title>About — CASHNOWADAYS</title>
 
   <link rel="stylesheet" href="about.css">
 </head>
 
 <body>
 
-  <!-- TOP NAV -->
+  <!-- NAV -->
+
   <nav class="navbar">
-    <a href="index.html" class="back-button">FILM</a>
+
+    <a href="index.html" class="logo">
+      CASHNOWADAYS
+    </a>
+
   </nav>
 
-  <!-- ABOUT CONTAINER -->
-  <main class="about-container">
+  <!-- ABOUT -->
 
-    <!-- LEFT SIDE -->
-    <section class="image-side">
+  <main class="about-layout">
 
-      <div class="image-wrapper">
+    <!-- LEFT -->
 
-        <img
-          id="aboutImage"
-          src="images/about_01.jpg"
-          alt="About Image"
-        />
+    <section class="about-text">
 
-      </div>
+      <div class="text-wrapper">
 
-    <!-- RIGHT SIDE -->
-    <section class="text-side">
+        <p class="date" id="currentDate"></p>
 
-      <div class="text-scroll">
-
-        <p class="date"></p>
-
-        <h1 class="title">
+        <h1>
           Knowing Cash...
         </h1>
 
-        <p class="paragraph">
-          Insert your about me here.
-          This area is fully scrollable if your text
-          becomes longer than the page itself.
-          You can talk about your photography,
-          film work, inspirations, creative process,
-          or anything else you want visitors to read.
+        <p>
+          Insert your about section here.
+          Talk about your creative direction,
+          photography, film inspiration,
+          identity, process, and artistic vision.
         </p>
 
-        <p class="paragraph">
-          The layout is intentionally minimal
-          and immersive to match the style
-          of your portfolio homepage.
+        <p>
+          This layout is intentionally minimal
+          and editorial-focused to match the
+          homepage experience.
         </p>
-          
-        </a>
+
+        <div class="contact">
+
+          <p>
+            Email:
+          </p>
+
+          <a href="mailto:youremail@gmail.com">
+            youremail@gmail.com
+          </a>
+
+        </div>
+
+        <div class="contact">
+
+          <p>
+            Instagram:
+          </p>
+
+          <a href="https://instagram.com/" target="_blank">
+            @cashnowadays
+          </a>
+
+        </div>
 
       </div>
+
+    </section>
+
+    <!-- RIGHT -->
+
+    <section class="about-image-section">
+
+      <img
+        src="images/about_01.jpg"
+        alt="Portrait"
+        class="about-image"
+      />
 
     </section>
 
@@ -69,4 +96,5 @@
   <script src="about.js"></script>
 
 </body>
+
 </html>
